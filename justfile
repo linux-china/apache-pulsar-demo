@@ -1,3 +1,4 @@
+export PE_CONNECTION_URL := "http://localhost:8080"
 # build the project
 build:
   ./mvnw -DskipTests clean package
@@ -9,6 +10,10 @@ release:
 # clean project
 clean:
   ./mvnw clean
+
+# pulsar-express for Pulsar web admin
+ui:
+   npx pulsar-express
 
 # update artifactId
 artifact artifactId:
