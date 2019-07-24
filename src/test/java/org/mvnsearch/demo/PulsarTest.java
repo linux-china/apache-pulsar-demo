@@ -5,7 +5,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
 
 /**
@@ -47,20 +50,22 @@ public class PulsarTest {
 
     @Test
     public void testSubscribe() throws Exception {
+        CountDownLatch latch = new CountDownLatch(1);
         Consumer<byte[]> consumer = client.newConsumer()
                 .topic(TOPIC_NAME)
                 .subscriptionType(SubscriptionType.Shared)
                 .subscriptionName("Demo-1")
                 .subscribe();
-        while (true) {
-            consumer.receiveAsync().thenAccept(message -> {
-                System.out.println(new String(message.getData()));
-                try {
-                    consumer.acknowledge(message);
-                } catch (Exception ignore) {
-
-                }
-            });
-        }
+        Flux.<Message<byte[]>>create(sink -> {
+            while (true) {
+                consumer.receiveAsync().thenAccept(message -> {
+                    sink.next(message);
+                });
+            }
+        }).flatMap(message -> {
+            System.out.println(new String(message.getData()));
+            return Mono.fromFuture(consumer.acknowledgeAsync(message));
+        }).subscribe();
+        latch.await();
     }
 }
