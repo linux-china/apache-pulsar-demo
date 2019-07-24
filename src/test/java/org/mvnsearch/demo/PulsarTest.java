@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.stream.IntStream;
 
 /**
@@ -54,8 +53,14 @@ public class PulsarTest {
                 .subscriptionName("Demo-1")
                 .subscribe();
         while (true) {
-            CompletableFuture<Message<byte[]>> messageCompletableFuture = consumer.receiveAsync();
-            System.out.println(new String(messageCompletableFuture.get().getData()));
+            consumer.receiveAsync().thenAccept(message -> {
+                System.out.println(new String(message.getData()));
+                try {
+                    consumer.acknowledge(message);
+                } catch (Exception ignore) {
+
+                }
+            });
         }
     }
 }
