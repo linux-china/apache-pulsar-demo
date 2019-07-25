@@ -10,6 +10,7 @@ Apache Pulsar is an open-source distributed pub-sub messaging system.
 * Apache Pulsar: https://pulsar.apache.org/en/
 * Pulsar Express: https://github.com/bbonnin/pulsar-express
 * Apache Pulsar: https://www.baeldung.com/apache-pulsar
+* Comparing Pulsar and Kafka: unified queuing and streaming: https://streaml.io/blog/pulsar-streaming-queuing
 * Apache Pulsar Java Client: https://pulsar.apache.org/docs/en/client-libraries-java/
 * Spring Boot Docs: https://docs.spring.io/spring-boot/docs/current/reference/html/
 * JUnit 5 Docs: https://junit.org/junit5/docs/current/user-guide/
