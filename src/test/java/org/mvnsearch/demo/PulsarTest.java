@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
@@ -56,15 +55,15 @@ public class PulsarTest {
                 .subscriptionType(SubscriptionType.Shared)
                 .subscriptionName("Demo-1")
                 .subscribe();
-        Flux.<Message<byte[]>>create(sink -> {
+        Flux.<PulsarMessageWrapper<byte[]>>create(sink -> {
             while (true) {
                 consumer.receiveAsync().thenAccept(message -> {
-                    sink.next(message);
+                    sink.next(new PulsarMessageWrapper<>(consumer, message));
                 });
             }
         }).flatMap(message -> {
             System.out.println(new String(message.getData()));
-            return Mono.fromFuture(consumer.acknowledgeAsync(message));
+            return message.acknowledgeAsync();
         }).subscribe();
         latch.await();
     }
