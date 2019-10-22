@@ -56,11 +56,9 @@ public class PulsarTest {
                 .subscriptionName("Demo-1")
                 .subscribe();
         Flux.<PulsarMessageWrapper<byte[]>>create(sink -> {
-            while (true) {
-                consumer.receiveAsync().thenAccept(message -> {
-                    sink.next(new PulsarMessageWrapper<>(consumer, message));
-                });
-            }
+            consumer.receiveAsync().thenAccept(message -> {
+                sink.next(new PulsarMessageWrapper<>(consumer, message));
+            });
         }).flatMap(message -> {
             System.out.println(new String(message.getData()));
             return message.acknowledgeAsync();
