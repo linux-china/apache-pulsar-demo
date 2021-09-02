@@ -5,6 +5,10 @@ Apache Pulsar is an open-source distributed pub-sub messaging system.
 
 ![Architecture](https://pulsar.apache.org/docs/assets/pulsar-system-architecture.png)
 
+# Features
+
+* Reactive Pulsar: https://github.com/lhotari/reactive-pulsar
+
 # References
 
 * Apache Pulsar: https://pulsar.apache.org/en/
