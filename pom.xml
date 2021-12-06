@@ -10,9 +10,9 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-boot.version>2.5.7</spring-boot.version>
-        <pulsar.version>2.8.1</pulsar.version>
-        <junit5.version>5.8.1</junit5.version>
+        <spring-boot.version>2.6.1</spring-boot.version>
+        <pulsar.version>2.9.0</pulsar.version>
+        <junit5.version>5.8.2</junit5.version>
     </properties>
 
     <dependencies>
