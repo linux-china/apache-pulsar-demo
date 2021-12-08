@@ -20,3 +20,4 @@ Apache Pulsar is an open-source distributed pub-sub messaging system.
 * Apache Pulsar Java Client: https://pulsar.apache.org/docs/en/client-libraries-java/
 * Spring Boot Docs: https://docs.spring.io/spring-boot/docs/current/reference/html/
 * Cloud-Native Microservices with Apache Pulsar:  https://learning.oreilly.com/library/view/cloud-native-microservices-with/9781484278390/
+* Mastering Apache Pulsar: https://learning.oreilly.com/library/view/mastering-apache-pulsar/9781492084891/
