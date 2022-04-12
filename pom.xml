@@ -13,7 +13,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-boot.version>2.6.6</spring-boot.version>
-        <pulsar.version>2.9.2</pulsar.version>
+        <pulsar.version>2.10.0</pulsar.version>
         <junit5.version>5.8.2</junit5.version>
     </properties>
 
@@ -24,8 +24,13 @@
             <version>23.0.0</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.21</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.pulsar</groupId>
-            <artifactId>pulsar-client</artifactId>
+            <artifactId>pulsar-client-original</artifactId>
             <version>${pulsar.version}</version>
         </dependency>
         <dependency>
