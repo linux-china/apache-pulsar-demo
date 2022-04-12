@@ -15,6 +15,10 @@ clean:
 ui:
    npx pulsar-express
 
+# dependency tree
+dependencies:
+  mvn dependency:tree -Dscope=compile > dependencies.txt
+
 # update artifactId
 artifact artifactId:
   sed -i .bak 's|<artifactId>spring-boot-java-template</artifactId>|<artifactId>{{artifactId}}</artifactId>|' pom.xml
