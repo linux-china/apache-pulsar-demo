@@ -6,3 +6,13 @@ POST http://localhost:9080/send
 Content-Type: text/plain
 
 Hello Pulsar!
+
+### send pulsar message
+PUB test-topic
+Host: pulsar://localhost:6650
+Content-Type: application/json
+X-User: linux-china
+
+{
+  "name": "Jackie"
+}
