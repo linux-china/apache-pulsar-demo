@@ -23,3 +23,4 @@ Apache Pulsar is an open-source distributed pub-sub messaging system.
 * Mastering Apache Pulsar: https://learning.oreilly.com/library/view/mastering-apache-pulsar/9781492084891/
 * Apache Pulsar in Action: https://learning.oreilly.com/library/view/apache-pulsar-in/9781617296888/
 * Event Streaming with Apache Pulsar and Kotlin: https://www.youtube.com/watch?v=PRoFPsplfnM 
+* Getting Started with the Apache Pulsar Java Client: https://medium.com/building-the-open-data-stack/getting-started-with-the-apache-pulsar-java-client-855641a6592d
