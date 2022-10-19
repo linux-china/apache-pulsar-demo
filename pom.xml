@@ -13,7 +13,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-boot.version>2.7.4</spring-boot.version>
-        <pulsar.version>2.10.1</pulsar.version>
+        <pulsar.version>2.10.2</pulsar.version>
         <junit5.version>5.9.1</junit5.version>
     </properties>
 
