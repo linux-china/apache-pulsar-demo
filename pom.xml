@@ -12,7 +12,7 @@
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <spring-boot.version>2.7.4</spring-boot.version>
+        <spring-boot.version>2.7.6</spring-boot.version>
         <pulsar.version>2.10.2</pulsar.version>
         <junit5.version>5.9.1</junit5.version>
     </properties>
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>23.0.0</version>
+            <version>23.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -46,9 +46,14 @@
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.apache.pulsar</groupId>
+            <artifactId>pulsar-client-reactive-adapter</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.github.lhotari</groupId>
             <artifactId>reactive-pulsar-spring-boot-starter</artifactId>
-            <version>0.2.0</version>
+            <version>0.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
