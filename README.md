@@ -6,7 +6,9 @@ Apache Pulsar is an open-source distributed pub-sub messaging system.
 ![Architecture](https://pulsar.apache.org/docs/assets/pulsar-system-architecture.png)
 
 # Features
-
+                                   
+* Reactive client for Apache Pulsar: https://github.com/apache/pulsar-client-reactive
+* Spring for Apache Pulsar: https://github.com/spring-projects-experimental/spring-pulsar
 * Reactive Pulsar: https://github.com/lhotari/reactive-pulsar
 
 # References
@@ -24,3 +26,4 @@ Apache Pulsar is an open-source distributed pub-sub messaging system.
 * Apache Pulsar in Action: https://learning.oreilly.com/library/view/apache-pulsar-in/9781617296888/
 * Event Streaming with Apache Pulsar and Kotlin: https://www.youtube.com/watch?v=PRoFPsplfnM 
 * Getting Started with the Apache Pulsar Java Client: https://medium.com/building-the-open-data-stack/getting-started-with-the-apache-pulsar-java-client-855641a6592d
+* Spring for Apache Pulsar 0.1.0 available now: https://spring.io/blog/2022/12/15/spring-for-apache-pulsar-0-1-0-available-now
