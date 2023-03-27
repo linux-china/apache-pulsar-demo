@@ -57,7 +57,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.pulsar</groupId>
-            <artifactId>spring-pulsar-spring-boot-starter</artifactId>
+            <artifactId>spring-pulsar-reactive-spring-boot-starter</artifactId>
             <version>0.2.0</version>
         </dependency>
         <dependency>
