@@ -58,7 +58,7 @@ public class PulsarTest {
         ReactiveMessageConsumer<String> messageConsumer = reactivePulsarClient
                 .messageConsumer(Schema.STRING)
                 .topic(TOPIC_NAME)
-                .consumerName("sub-1")
+                .subscriptionName("sub-1")
                 .build();
         messageConsumer.consumeMany(messageFlux -> messageFlux.map(message -> {
                     System.out.println(message.getProperties());
