@@ -1,7 +1,7 @@
 package org.mvnsearch.demo;
 
-import com.github.lhotari.reactive.pulsar.adapter.MessageSpec;
-import com.github.lhotari.reactive.pulsar.adapter.ReactiveMessageSender;
+import org.apache.pulsar.reactive.client.api.MessageSpec;
+import org.apache.pulsar.reactive.client.api.ReactiveMessageSender;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +29,7 @@ public class PortalController {
     @PostMapping("/send")
     public Mono<String> send(@RequestBody String body) {
         return testTopicSender
-                .sendMessage(Mono.just(MessageSpec.of(body)))
+                .sendOne(MessageSpec.of(body))
                 .map(messageId -> "Message: " + messageId);
     }
 }

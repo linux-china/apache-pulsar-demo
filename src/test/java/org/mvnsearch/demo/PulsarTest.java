@@ -1,9 +1,10 @@
 package org.mvnsearch.demo;
 
-import com.github.lhotari.reactive.pulsar.adapter.MessageResult;
-import com.github.lhotari.reactive.pulsar.adapter.ReactiveMessageConsumer;
-import com.github.lhotari.reactive.pulsar.adapter.ReactivePulsarClient;
 import org.apache.pulsar.client.api.*;
+import org.apache.pulsar.reactive.client.adapter.AdaptedReactivePulsarClientFactory;
+import org.apache.pulsar.reactive.client.api.MessageResult;
+import org.apache.pulsar.reactive.client.api.ReactiveMessageConsumer;
+import org.apache.pulsar.reactive.client.api.ReactivePulsarClient;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -27,7 +28,7 @@ public class PulsarTest {
     @BeforeAll
     public void setUp() throws Exception {
         client = PulsarClient.builder().serviceUrl(SERVICE_URL).build();
-        reactivePulsarClient = ReactivePulsarClient.create(client);
+        reactivePulsarClient = AdaptedReactivePulsarClientFactory.create(client);
     }
 
     @AfterAll
@@ -57,9 +58,12 @@ public class PulsarTest {
         ReactiveMessageConsumer<String> messageConsumer = reactivePulsarClient
                 .messageConsumer(Schema.STRING)
                 .topic(TOPIC_NAME)
-                .consumerConfigurer(consumerBuilder -> consumerBuilder.subscriptionName("sub-1"))
+                .consumerName("sub-1")
                 .build();
-        messageConsumer.consumeMessages(messageFlux -> messageFlux.map(message -> MessageResult.acknowledge(message.getMessageId(), message.getValue())))
+        messageConsumer.consumeMany(messageFlux -> messageFlux.map(message -> {
+                    System.out.println(message.getProperties());
+                    return MessageResult.acknowledge(message.getMessageId(), message.getValue());
+                }))
                 .subscribe(System.out::println);
         latch.await();
     }
