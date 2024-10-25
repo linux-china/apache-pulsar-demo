@@ -12,16 +12,16 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <spring-boot.version>3.3.3</spring-boot.version>
-        <pulsar.version>3.3.1</pulsar.version>
-        <junit5.version>5.11.0</junit5.version>
+        <spring-boot.version>3.3.5</spring-boot.version>
+        <pulsar.version>4.0.0</pulsar.version>
+        <junit5.version>5.11.3</junit5.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>24.1.0</version>
+            <version>26.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -133,7 +133,7 @@
             <plugin>
                 <groupId>io.github.git-commit-id</groupId>
                 <artifactId>git-commit-id-maven-plugin</artifactId>
-                <version>5.0.0</version>
+                <version>9.0.1</version>
                 <executions>
                     <execution>
                         <goals>
